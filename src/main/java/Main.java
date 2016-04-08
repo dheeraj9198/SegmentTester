@@ -14,6 +14,7 @@ public class Main {
 
     public static void main(String[] args) {
         Analytics analytics = Analytics.builder(writeKey).build();
+
         analytics.enqueue(IdentifyMessage.builder()
                 .userId("dheeraj")
                 .traits(ImmutableMap.builder()
@@ -21,20 +22,22 @@ public class Main {
                         .put1("email", "dhirajsiitk9@gmail.com")
                 )
         );
+
         analytics.enqueue(TrackMessage.builder("Signed Not")
                 .userId("dheeraj")
                 .properties(ImmutableMap.builder()
                         .put1("category", "Sports")
                         .put1("plane", "Enterprise")
+                        .put1("lecture_id","23").put1("label","test ")
                 )
         );
-        analytics.enqueue(ScreenMessage.builder("Schedule")
+  /*      analytics.enqueue(ScreenMessage.builder("Screen")
                 .userId("dheeraj")
                 .properties(ImmutableMap.builder()
                         .put1("category", "Sports")
                         .put1("path", "/sports/schedule")
                 )
-        );
+        );*/
         System.out.println("done");
     }
 
